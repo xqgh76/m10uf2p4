@@ -1,0 +1,86 @@
+ <odoo>
+  <data>
+
+
+
+    <record model="ir.ui.view" id="despeses.despeses_form">
+      <field name="name">despeses_despeses_form</field>
+      <field name="model">despeses.despeses</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+              <h1>Ticket <span><field name="id"/></span></h1>
+            </div>
+            <group>
+
+              <field name="data"/>
+              <field name="total"/>
+             </group>
+              <notebook>
+              		<page string="Línies" name="despeses_linies">
+   			           	<field name="id_despesa" widget="section_and_note_one2many" mode="tree"
+   			           	 context="{'default_state': 'draft'}"
+                                >
+                    	<tree
+                                    string="Despeses"
+                                    editable="bottom"
+                                   
+                                >
+                                                    <control>
+                                        <create name="add_despesa" string="Afegir despesa"/>
+                                    </control>
+              				<field name="concepte"/>
+              				<field name="preu"/>
+              			</tree>
+              			</field>
+              		</page>
+              	</notebook>
+              			
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="despeses.despeses_tree">
+      <field name="name">Tickets</field>
+      <field name="model">despeses.despeses</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="data"/>
+          <field name="total"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="despeses.despeses_search" model="ir.ui.view">
+      <field name="model">despeses.despeses</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="data"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_view_despeses_despeses" model="ir.actions.act_window">
+      <field name="name">Despeses</field>
+      <field name="res_model">despeses.despeses</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_view_despeses" model="ir.actions.act_window">
+      <field name="name">Despeses</field>
+      <field name="res_model">despeses.despeses</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+   
+   
+    <menuitem name="Tickets" id="menu_despeses_root" parent="" action="action_view_despeses"/>
+    
+    <menuitem name="Tickets" id="menu_despeses" parent="menu_despeses_root" action="action_view_despeses_despeses"/>
+
+  </data>
+</odoo>

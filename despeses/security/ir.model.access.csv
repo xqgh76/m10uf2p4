@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_despeses_despeses,despeses.despeses,despeses.model_despeses_despeses,base.user_admin,1,1,1,1
+access_despeses_linia,despeses.linies,despeses.model_despeses_linies,base.user_admin,1,1,1,1
+
